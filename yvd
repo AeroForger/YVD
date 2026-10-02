@@ -1,0 +1,10 @@
+#!/bin/sh
+# Prefer the source checkout, with compatibility for the old manual install.
+YVD_SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ -f "$YVD_SCRIPT_DIR/main.py" ]; then
+    exec python3 "$YVD_SCRIPT_DIR/main.py" "$@"
+fi
+if [ -f /usr/local/lib/yvd/main.py ]; then
+    exec python3 /usr/local/lib/yvd/main.py "$@"
+fi
+exec python3 -m yvd_cli "$@"

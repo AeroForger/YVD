@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yvd"
+version = "2.0.0"
+description = "A focused YouTube MP4 and MP3 downloader with batch and playlist controls"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["yt-dlp[default]>=2026.8.19"]
+
+[project.scripts]
+yvd = "yvd_cli.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["yvd_cli*"]
